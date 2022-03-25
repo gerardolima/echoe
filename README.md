@@ -16,9 +16,10 @@ $ PORT=4000 node http-request-debugger.js
 ```
 
 ## how call this service
-- listen on the default port for a single HTTP request
-  ```sh
-  $ node http-request-debugger.js
-  # call the server from another terminal
-  $ curl --data 'hello=world' 'http://localhost:3000'
-  ```
+```sh
+# call the server from another terminal
+$ curl --data 'msg=hello world' 'http://localhost:3000'
+
+  # call the server using multipart/form-data, with a value and the contents of a file
+$  curl --form 'msg=hello world' --form myFile=@my-file.jpg 'http://localhost:3000/any-path'
+```
