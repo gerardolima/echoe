@@ -20,11 +20,10 @@ const parseParams = (url) => {
   const {searchParams} = new URL(`http://host${url}`)
   const falsy = ['n', 'no', '0', 'false']
 
-  const showUrl = !falsy.includes(searchParams.get('u'))
+  const showUrl     = !falsy.includes(searchParams.get('u'))
   const showHeaders = !falsy.includes(searchParams.get('h'))
-  const showBody = !falsy.includes(searchParams.get('b'))
+  const showBody    = !falsy.includes(searchParams.get('b'))
 
-  /** @type {TranscodeEncoding} */
   let encoding = searchParams.get('e')
   if(!Buffer.isEncoding(encoding)) encoding = 'binary'
 
@@ -32,11 +31,9 @@ const parseParams = (url) => {
 }
 
 /** @type http.RequestListener */
-const requestListener = function (req, res) {
+const requestListener = (req, res) => {
   const {headers, method, url} = req
-
   const {showUrl, showHeaders, showBody, encoding} = parseParams(url)
-
 
   if(showUrl) log(`[${(new Date).toISOString()}] ${method}: ${url}`)
   if(showHeaders) log(headers)
