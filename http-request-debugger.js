@@ -1,3 +1,5 @@
+'use strict'
+
 // https://nodejs.dev/learn/get-http-request-body-data-using-nodejs
 // https://nodejs.dev/learn/the-nodejs-http-module
 // https://nodejs.org/docs/latest-v14.x/api/http.html#http_event_request
